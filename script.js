@@ -1,0 +1,108 @@
+window.addEventListener('load', () => {
+      const loading = document.getElementById('loading');
+      setTimeout(() => {
+        loading.classList.add('fade-out');
+      }, 1000);
+    });
+
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking on links
+    navLinks.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A') {
+        menuToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+      }
+    });
+
+    // Typewriter Effect
+    const text = "Passionate Software Developer specializing in C# .NET, Python, and modern web technologies. I create efficient, scalable solutions and love solving complex problems through code.";
+    const typewriter = document.getElementById('typewriter');
+    let i = 0;
+
+    function type() {
+      if (i < text.length) {
+        typewriter.textContent += text.charAt(i);
+        i++;
+        setTimeout(type, 50);
+      }
+    }
+
+    // Start typewriter after page loads
+    setTimeout(type, 1500);
+
+    // Smooth Scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Scroll Animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Navbar Background on Scroll
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.style.background = 'rgba(10, 10, 10, 0.98)';
+      } else {
+        navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+      }
+    });
+
+    // Contact Form Submission
+    document.querySelector('.contact-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      // Add your form submission logic here
+      alert('Thank you for your message! I\'ll get back to you soon.');
+    });
+
+    // Scroll to Top Button
+    let lastScrollTop = 0;
+    const footer = document.getElementById('mainFooter');
+
+    window.addEventListener('scroll', () => {
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+      if(scrollTop > lastScrollTop)
+      {
+        // Scrolling down
+        footer.classList.add('hidden-footer');
+      }
+      else{
+        // Scrolling up
+        footer.classList.remove('hidden-footer');
+      }
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+
+    });
