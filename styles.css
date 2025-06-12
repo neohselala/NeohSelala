@@ -251,14 +251,6 @@
       transform: translateY(-10px);
     }
 
-    /* .profile-image {
-      width: 100%;
-      height: auto;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    } */
 .profile-photo{
   width: 100%;
   height: 320px;
@@ -563,12 +555,15 @@
       }
       .footer-sections {
         flex-direction: column;
-        align-items: center;
-        text-align: center;
+        align-items: flex-start;
+        text-align: left;
+       padding-left:1rem;
+       pading-right:1rem
       }
 
       .footer-column {
         margin-bottom: 2rem;
+       width:100%
       }
     }
 
