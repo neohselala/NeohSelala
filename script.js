@@ -23,7 +23,7 @@ window.addEventListener('load', () => {
     });
 
     // Typewriter Effect
-    const text = "Passionate Software Developer specializing in C# .NET, Python, and modern web technologies. I create efficient, scalable solutions and love solving complex problems through code.";
+    const text = "Passionate aspiring Software Developer specializing in C# .NET, Python, and modern web technologies. I create efficient, scalable solutions and love solving complex problems through code.";
     const typewriter = document.getElementById('typewriter');
     let i = 0;
 
@@ -87,22 +87,3 @@ window.addEventListener('load', () => {
       alert('Thank you for your message! I\'ll get back to you soon.');
     });
 
-    // Scroll to Top Button
-    let lastScrollTop = 0;
-    const footer = document.getElementById('mainFooter');
-
-    window.addEventListener('scroll', () => {
-      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-      if(scrollTop > lastScrollTop)
-      {
-        // Scrolling down
-        footer.classList.add('hidden-footer');
-      }
-      else{
-        // Scrolling up
-        footer.classList.remove('hidden-footer');
-      }
-      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
-
-    });
