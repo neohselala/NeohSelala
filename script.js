@@ -97,13 +97,13 @@ window.addEventListener('load', () => {
     });
 
     if (response.ok) {
-      messageBox.textContent = "✅ Thank you! Your message has been sent.";
+      messageBox.textContent = "Thank you! Your message has been sent.";
       form.reset();
     } else {
-      messageBox.textContent = "❌ Something went wrong. Please try again later.";
+      messageBox.textContent = "Something went wrong. Please try again later.";
     }
   } catch (error) {
-    messageBox.textContent = "⚠️ Network error. Please check your connection.";
+    messageBox.textContent = "Network error. Please check your connection.";
   }
 });
 
