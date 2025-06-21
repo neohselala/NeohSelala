@@ -81,9 +81,28 @@ window.addEventListener('load', () => {
     });
 
     // Contact Form Submission
-    document.querySelector('.contact-form').addEventListener('submit', (e) => {
-      e.preventDefault();
-      // Add your form submission logic here
-      alert('Thank you for your message! I\'ll get back to you soon.');
+    document.querySelector('.contact-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const form = e.target;
+  const data = new FormData(form);
+
+  try {
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: data,
+      headers: {
+        'Accept': 'application/json'
+      }
     });
+
+    if (response.ok) {
+      alert('Thank you for your message! I\'ll get back to you soon.');
+      form.reset();
+    } else {
+      alert('There was an error sending your message. Please try again later.');
+    }
+  } catch (error) {
+    alert('Network error. Please check your internet connection.');
+  }
+});
 
