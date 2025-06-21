@@ -97,7 +97,7 @@ window.addEventListener('load', () => {
     });
 
     if (response.ok) {
-      messageBox.textContent = "Thank you! Your message has been sent.";
+      messageBox.Alert("Thank you! Your message has been sent.");
       form.reset();
     } else {
       messageBox.textContent = "Something went wrong. Please try again later.";
